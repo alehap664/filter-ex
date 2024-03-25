@@ -4,6 +4,13 @@ const compareAsJSON = (v1: unknown, v2: unknown) => {
   return JSON.stringify(v1) === JSON.stringify(v2);
 };
 
+export const isObject = (value: unknown): value is object => {
+  return value != null && typeof value === 'object' && !Array.isArray(value);
+};
+export const isFunction = (value: unknown): value is () => void => {
+  return typeof value === 'function';
+};
+
 const and = <D>(...predicates: (Predicate<D> | Predicate<D>[])[]): Predicate<D> => {
   return (...data) => {
     return predicates.every((predicate) => {
