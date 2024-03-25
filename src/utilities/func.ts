@@ -1,9 +1,11 @@
-import { compareAsJSON } from ".";
+import { compareAsJSON } from '.';
 
 /**
  * Equal
  */
-const eq = <T = number | string>(value: T) => (target: T) => value === target;
+const eq = <T = number | string>(value: T) => {
+  return (target: T) => value === target;
+};
 /**
  * Between
  */
@@ -35,10 +37,10 @@ const includes = <T>(values: Array<T>) => {
   return (target: Array<T> | T) => {
     if (Array.isArray(target)) {
       for (const v1 of values) {
-        for (const v2 of target) if (compareAsJSON(v1, v2)) return true
+        for (const v2 of target) if (compareAsJSON(v1, v2)) return true;
       }
       return false;
-    };
+    }
 
     for (const v of values) if (compareAsJSON(v, target)) return true;
     return false;
@@ -51,13 +53,13 @@ const nin = <T>(values: Array<T>) => {
   return (target: Array<T> | T) => {
     if (Array.isArray(target)) {
       for (const v1 of values) {
-        for (const v2 of target) if (compareAsJSON(v1, v2)) return false
+        for (const v2 of target) if (compareAsJSON(v1, v2)) return false;
       }
-    };
+    }
 
     for (const v of values) if (compareAsJSON(v, target)) return false;
     return true;
   };
 };
 
-export { eq, bw, gt, gte, lt, lte, like, includes as in, nin };
+export { bw, eq, gt, gte, includes as in, like, lt, lte, nin };

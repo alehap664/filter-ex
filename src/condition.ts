@@ -1,12 +1,13 @@
-import { SelectorInstance, Predicate } from "."
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Predicate, SelectorInstance } from '.';
 
-const condition = <D, V,>(selector: SelectorInstance<D, V>) => {
-  function func(condition: (value: V) => (target: V) => boolean): (value: V) => Predicate<D>
-  function func(condition: (value1: V, value2: V) => (target: V) => boolean): (value1: V, value2: V) => Predicate<D>
+const condition = <D, V>(selector: SelectorInstance<D, V>) => {
+  function func(condition: (value: V) => (target: V) => boolean): (value: V) => Predicate<D>;
+  function func(condition: (value1: V, value2: V) => (target: V) => boolean): (value1: V, value2: V) => Predicate<D>;
   function func(condition: any) {
-    return (...v: any) => selector((condition(...v)))
+    return (...v: any) => selector(condition(...v));
   }
-  return func
-}
+  return func;
+};
 
 export { condition };

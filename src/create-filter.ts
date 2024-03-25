@@ -1,6 +1,6 @@
-import { predicate } from ".";
-import { FilterParams } from "./types";
-import { selector } from "./selector";
+import { predicate } from '.';
+import { selector } from './selector';
+import { FilterParams } from './types';
 
 const createFilter = <D, T, F>(params: FilterParams<D, T, F>): T & F => {
   const { selectors, filters } = params;

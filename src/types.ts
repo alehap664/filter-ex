@@ -1,11 +1,11 @@
-export type Func<V = any> = (value: V) => boolean;
-export type Predicate<V = any> = (value: V, index: number, array: V[]) => boolean;
+export type Func<V = unknown> = (value: V) => boolean;
+export type Predicate<V = unknown> = (value: V, index: number, array: V[]) => boolean;
 
-export type SelectorCallback<D = any, V = any> = (value: D, index: number, array: D[]) => V;
-export type SelectorInstance<D = any, V = any> = (func: Func<V>) => Predicate<D>;
-export type Selector<D = any> = <V = any>(cb: SelectorCallback<D, V>) => SelectorInstance<D, V>;
+export type SelectorCallback<D = unknown, V = unknown> = (value: D, index: number, array: D[]) => V;
+export type SelectorInstance<D = unknown, V = unknown> = (func: Func<V>) => Predicate<D>;
+export type Selector<D = unknown> = <V = unknown>(cb: SelectorCallback<D, V>) => SelectorInstance<D, V>;
 
-export type FilterParams<D = any, S = any, F = any> = {
+export type FilterParams<D = unknown, S = unknown, F = unknown> = {
   selectors: (selector: Selector<D>) => S;
   /**
    * @param selectors

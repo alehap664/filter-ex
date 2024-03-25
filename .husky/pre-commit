@@ -1,1 +1,5 @@
-yarn vitest run
+echo "[INFO] Prettier checking"
+yarn prettier
+
+echo "[INFO] Eslint checking"
+yarn eslint

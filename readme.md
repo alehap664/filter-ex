@@ -1,9 +1,13 @@
 ### Install
+
 #### npm
+
 ```bash
-npm install --save @alehap/filter-ex
+npm install --save @alehap664/filter-ex
 ```
+
 #### yarn
+
 ```bash
-yarn add @alehap/filter-ex
+yarn add @alehap664/filter-ex
 ```
